@@ -16,7 +16,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'DotGothic16', 'VT323', monospace;
+    font-family: 'M PLUS 1 Code', 'VT323', monospace;
     height: 100vh;
     display: flex;
     justify-content: center;
