@@ -1,6 +1,29 @@
 const terminalContent = document.getElementById('terminal-content');
 const monitor = document.querySelector('.monitor');
 
+// Audio Context for synthesized typing sounds
+let audioCtx = null;
+let isSoundEnabled = false;
+
+function playTypingSound() {
+    if (!isSoundEnabled || !audioCtx) return;
+    
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(Math.random() * 100 + 50, audioCtx.currentTime);
+    
+    gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+    
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.05);
+}
+
 // Use CONFIG from config.js
 const { messages, codeFragments, settings } = CONFIG;
 
@@ -11,6 +34,7 @@ async function typeWriter(text, className = 'message-line') {
     
     for (const char of text) {
         line.textContent += char;
+        if (char !== ' ') playTypingSound();
         await new Promise(resolve => setTimeout(resolve, settings.typingSpeed));
     }
 
@@ -80,6 +104,20 @@ stableToggle.onclick = () => {
     document.body.classList.toggle('stable-mode');
     const isStable = document.body.classList.contains('stable-mode');
     stableToggle.textContent = `STABLE MODE: ${isStable ? 'ON' : 'OFF'}`;
+};
+
+// Sound Toggle
+const soundToggle = document.getElementById('sound-toggle');
+soundToggle.onclick = () => {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    isSoundEnabled = !isSoundEnabled;
+    soundToggle.textContent = `SOUND: ${isSoundEnabled ? 'ON' : 'OFF'}`;
+    
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
 };
 
 // Initialize
