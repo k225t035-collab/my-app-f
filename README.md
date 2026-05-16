@@ -1,21 +1,18 @@
-# Ghost Terminal Portfolio
+# Matrix Terminal Portfolio (Japanese Support)
 
-A highly stylized, cyberpunk-themed portfolio site for GitHub Pages. 
+映画「マトリックス」の世界観を再現した、日本語対応のポートフォリオサイトです。
 
-## Features
-- **3D CRT Simulation**: A curved monitor effect using CSS 3D transforms.
-- **Deep Glitch Effects**: Random visual glitches, chromatic aberration, and scanlines.
-- **Terminal Typing Engine**: Content is typed out dynamically like a retro terminal.
-- **Stable Mode**: An accessibility feature to disable intense animations and glitches.
-- **Responsive**: Adapts to mobile devices with a flat terminal view.
+## 特徴
+- **マトリックス・スタイル**: 緑色のデジタルフォントとCRTモニター風の3Dエフェクト。
+- **日本語フル対応**: 漢字・ひらがな・カタカナの滑らかなタイピング演出。
+- **超簡単カスタマイズ**: `config.js` を書き換えるだけで、誰でも自分専用のサイトが作れます。
+- **STABLE MODE**: 激しいエフェクトをオフにするアクセシビリティ機能。
 
-## Tech Stack
-- HTML5
-- CSS3 (Custom Properties, 3D Transforms, Keyframe Animations)
-- Vanilla JavaScript
+## 使い方 (自分専用にする方法)
+1. `config.js` ファイルを開きます。
+2. 中身のテキスト（名前、スキル、プロジェクト、リンクなど）を自分の情報に書き換えます。
+3. 保存してブラウザで開くだけ！
 
-## Setup
-Simply open `index.html` in any modern web browser, or host it on GitHub Pages.
-
-## Customization
-Edit `portfolioData` in `script.js` to change the content.
+## 技術スタック
+- HTML5 / CSS3 (3D Transforms) / JavaScript (Vanilla)
+- Google Fonts (Noto Sans JP, VT323)

@@ -1,8 +1,8 @@
 :root {
-    --bg-color: #050505;
+    --bg-color: #000000;
     --text-color: #00ff41;
-    --glow-color: rgba(0, 255, 65, 0.5);
-    --scanline-color: rgba(18, 16, 16, 0.1);
+    --glow-color: rgba(0, 255, 65, 0.7);
+    --scanline-color: rgba(0, 255, 65, 0.05);
     --glitch-red: #ff0000;
     --glitch-blue: #00ffff;
 }
@@ -16,13 +16,13 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'VT323', monospace;
+    font-family: 'Noto Sans JP', 'VT323', monospace;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    perspective: 1000px;
+    perspective: 1200px;
 }
 
 .container {
