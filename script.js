@@ -14,11 +14,15 @@ async function typeWriter(text, className = 'message-line') {
         await new Promise(resolve => setTimeout(resolve, settings.typingSpeed));
     }
 
-    // Scroll to bottom
-    terminalContent.scrollTop = terminalContent.scrollHeight;
+    // Scroll to bottom smoothly
+    const screen = document.querySelector('.screen');
+    screen.scrollTo({
+        top: screen.scrollHeight,
+        behavior: 'smooth'
+    });
 
     // Performance cleanup: remove old lines if too many
-    if (terminalContent.children.length > 30) {
+    if (terminalContent.children.length > 50) {
         terminalContent.removeChild(terminalContent.firstChild);
     }
 }

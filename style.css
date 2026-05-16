@@ -16,7 +16,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Noto Sans JP', 'VT323', monospace;
+    font-family: 'DotGothic16', 'VT323', monospace;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -108,8 +108,19 @@ body {
     height: 100%;
     background-color: #0a0a0a;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 40px;
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.screen::-webkit-scrollbar {
+    display: none;
+}
+.screen {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* CRT Overlay Effects */
@@ -168,8 +179,8 @@ body {
 
 /* Content Styling */
 .content {
-    font-size: 1.8rem;
-    line-height: 1.4;
+    font-size: 1.6rem;
+    line-height: 1.6;
     text-shadow: 
         0 0 8px var(--glow-color),
         0 0 15px var(--glow-color);
@@ -178,8 +189,9 @@ body {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* New messages at bottom */
+    justify-content: flex-end;
     min-height: 100%;
+    scroll-behavior: smooth;
 }
 
 .message-line {
